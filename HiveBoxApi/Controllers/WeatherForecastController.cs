@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-
+using HiveBoxApi.Services;
 namespace HiveBoxApi.Controllers;
 
 [ApiController]
@@ -13,12 +13,15 @@ public class WeatherForecastController : ControllerBase
 
     private readonly ILogger<WeatherForecastController> _logger;
     private readonly IConfiguration configuration;
+    private readonly IAppVersionService appVersionService;
 
     public WeatherForecastController(ILogger<WeatherForecastController> logger,
-    IConfiguration configuration)
+    IConfiguration configuration,
+    IAppVersionService appVersionService)
     {
         _logger = logger;
         this.configuration = configuration;
+        this.appVersionService = appVersionService;
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
@@ -36,6 +39,6 @@ public class WeatherForecastController : ControllerBase
     [HttpGet("[action]")]
     public IActionResult AppVersion()
     {
-        return Ok(configuration["AppVersion"]);
+        return Ok(appVersionService.GetAppVersion());
     }
 }
