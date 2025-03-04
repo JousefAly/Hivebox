@@ -20,6 +20,6 @@ public class AppVersionTests
 
         string result = service.GetAppVersion();
 
-        Assert.Equal("v0.0.1", result);
+        Assert.Equal("v0.0.2", result);
     }
 }
