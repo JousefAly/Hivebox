@@ -22,7 +22,7 @@ jobs:
         dotnet-version: 8.0.x
         
     - name: Locate
-      run: cd ..
+      run: cd ../HiveBoxApi
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
