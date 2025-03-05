@@ -13,6 +13,7 @@ public class AppVersionTests
         //this is not testing. testing should mock dependencies but use the 
         //intended service
         //comment
+        //comment
         var mockService = new Mock<IAppVersionService>();
 
         mockService.Setup(service => service.GetAppVersion()).Returns("v0.0.1");
