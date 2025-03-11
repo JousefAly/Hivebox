@@ -1,0 +1,21 @@
+repos:
+  - repo: local
+    hooks:
+      - id: dotnet-format
+        name: Format .NET code
+        entry: dotnet format
+        language: system
+        types: [cs]  # Run on C# files
+        pass_filenames: false
+
+      - id: dotnet-build
+        name: Build .NET project
+        entry: dotnet build ./HiveBoxApi --no-restore
+        language: system
+        pass_filenames: false
+
+      - id: dotnet-test
+        name: Run .NET tests
+        entry: dotnet test ./HiveBoxApi.Tests
+        language: system
+        pass_filenames: false
