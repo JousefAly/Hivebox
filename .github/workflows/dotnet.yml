@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: .NET / build (pull_request)
+    name: API Build
     runs-on: ubuntu-latest
 
     steps:
